@@ -13,14 +13,24 @@ class flyboard(unittest.TestCase):
        pwd = "instructor1a"
        driver = self.driver
        driver.maximize_window()
-       driver.get("http://abrarblog.pythonanywhere.com/admin")
+       driver.get("http://manmohanrathore.pythonanywhere.com/admin/login/?next=/admin/")
        elem = driver.find_element_by_id("id_username")
        elem.send_keys(user)
        elem = driver.find_element_by_id("id_password")
        elem.send_keys(pwd)
        elem.send_keys(Keys.RETURN)
        time.sleep(5)
-       driver.get("http://abrarblog.pythonanywhere.com/")
+       elem = driver.find_element_by_xpath("//*[@id='content-main']/div[5]/table/tbody/tr[2]/th/a")
+       elem.click()
+       time.sleep(4)
+       elem = driver.find_element_by_xpath("//*[@id='site-name']/a").click()
+       time.sleep(4)
+       elem = driver.find_element_by_xpath("//*[@id='content-main']/div[5]/table/tbody/tr[1]/th/a").click()
+       time.sleep(4)
+       elem = driver.find_element_by_xpath("//*[@id='site-name']/a").click()
+       elem = driver.find_element_by_xpath("//*[@id='content-main']/div[4]/table/tbody/tr/th/a").click()
+       time.sleep(4)
+       driver.get("http://manmohanrathore.pythonanywhere.com/")
        assert "Logged In"
        time.sleep(5)
 

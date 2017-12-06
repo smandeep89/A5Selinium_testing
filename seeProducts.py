@@ -13,23 +13,23 @@ class flyboard(unittest.TestCase):
        pwd = "instructor1a"
        driver = self.driver
        driver.maximize_window()
-       driver.get("http://abrarblog.pythonanywhere.com")
+       driver.get("http://manmohanrathore.pythonanywhere.com/")
        time.sleep(5)
-       elem= driver.find_element_by_xpath("//*[@id='navbarNavDropdown']/ul/ul").click()
-       elem = driver.find_element_by_css_selector("#content > div.wrapper > form > input:nth-child(3)")
+       elem= driver.find_element_by_xpath("//*[@id='navbarCollapse']/ul[1]/li[1]/a").click()
+       time.sleep(1)
+       elem = driver.find_element_by_xpath("//*[@id='navbarCollapse']/ul[1]/li[2]/a").click()
+       time.sleep(1)
+       elem = driver.find_element_by_xpath("//*[@id='navbarCollapse']/ul[1]/li[3]/a").click()
+       time.sleep(1)
+       elem = driver.find_element_by_xpath("/html/body/div[2]/div/div[1]/p[2]/a").click()
+       elem = driver.find_element_by_name("username")
        elem.send_keys(user)
-       elem = driver.find_element_by_css_selector("#content > div.wrapper > form > input:nth-child(4)")
+       elem = driver.find_element_by_name("password")
        elem.send_keys(pwd)
-       elem= driver.find_element_by_css_selector("#content > div.wrapper > form > input.btn.btn-lg.btn-primary.btn-block").click()
+       elem = driver.find_element_by_xpath("/html/body/div[1]/div/form/input[4]").click()
        time.sleep(5)
-       elem = driver.find_element_by_link_text("SKATEBOARDS").click()
-       time.sleep(3)
-       elem = driver.find_element_by_link_text("SHOES").click()
-       time.sleep(3)
-       elem = driver.find_element_by_link_text("ACCESSORIES").click()
-       time.sleep(3)
-       elem = driver.find_element_by_link_text("BLOWOUT DEALS").click()
-       time.sleep(3)
+
+
 
    def tearDown(self):
        self.driver.close()

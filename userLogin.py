@@ -13,14 +13,17 @@ class flyboard(unittest.TestCase):
        pwd = "instructor1a"
        driver = self.driver
        driver.maximize_window()
-       driver.get("http://abrarblog.pythonanywhere.com")
-       time.sleep(5)
-       elem= driver.find_element_by_xpath("//*[@id='navbarNavDropdown']/ul/ul").click()
-       elem = driver.find_element_by_css_selector("#content > div.wrapper > form > input:nth-child(3)")
+       driver.get("http://manmohanrathore.pythonanywhere.com")
+       time.sleep(2)
+       elem= driver.find_element_by_xpath("//*[@id='navbarCollapse']/ul[2]/li[1]/a").click()
+
+       elem = driver.find_element_by_name("username")
        elem.send_keys(user)
-       elem = driver.find_element_by_css_selector("#content > div.wrapper > form > input:nth-child(4)")
+       time.sleep(1)
+       elem = driver.find_element_by_name("password")
        elem.send_keys(pwd)
-       elem= driver.find_element_by_css_selector("#content > div.wrapper > form > input.btn.btn-lg.btn-primary.btn-block").click()
+       time.sleep(1)
+       elem = driver.find_element_by_xpath("/html/body/div[1]/div/form/input[4]").click()
        time.sleep(5)
 
 
